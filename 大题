@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>习近平新时代中国特色社会主义思想 - 重难点考点全编</title>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --bg-color: #fdfdfd;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #ff5252;
+            --border-color: #eeeeee;
+        }
+
+        body {
+            font-family: 'STSong', 'SimSun', 'PingFang SC', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        .grid-container {
+            column-count: 2;
+            column-gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-container {
+                column-count: 1;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            margin-bottom: 30px;
+            break-inside: avoid;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 19px;
+            line-height: 1.4;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 12px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .index-box {
+            background: #fffafa;
+            border: 1px dashed var(--primary-color);
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .index-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            font-size: 14px;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>思想政治理论复习提纲</h1>
+        <div class="subtitle">重难点问答题（全15题）</div>
+    </header>
+
+    <div class="index-box">
+        <div class="index-title">内容目录：</div>
+        <div class="index-grid">
+            <div>1. 历史地位 </div>
+            <div>2. 时代背景 </div>
+            <div>3. 法治基本原则 </div>
+            <div>4. 中国式现代化特色 </div>
+            <div>5. 文化繁荣意义 </div>
+            <div>6. 制度与治理关系 </div>
+            <div>7. 法治体系建设 </div>
+            <div>8. 中华文明特性 </div>
+            <div>9. 新型国际关系 </div>
+            <div>10. 传统文化转化 </div>
+            <div>11. 绿色生产生活 </div>
+            <div>12. 新发展理念 </div>
+            <div>13. 基本经济制度 </div>
+            <div>14. 人类命运共同体 </div>
+            <div>15. 人与自然和谐 </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <h3>1. 简述习近平新时代中国特色社会主义思想的历史地位</h3>
+            <ul>
+                <li>是当代中国马克思主义、二十一世纪马克思主义，实现了马克思主义中国化时代化新的飞跃 。</li>
+                <li>是马克思主义在当代中国发展的最新理论成果，开辟了马克思主义中国化时代化新境界 。</li>
+                <li>是中华民族文化主体性最有力的体现，是中华文化和中国精神的时代精华 。</li>
+                <li>是全党全国各族人民为实现中华民族伟大复兴而奋斗的行动指南，是新时代党和国家事业发展的根本遵循 。</li>
+                <li>是全党全国各族人民团结奋斗、勇毅前行创造新的历史伟业的精神旗帜 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>2. 简述习近平新时代中国特色社会主义思想创立的时代背景</h3>
+            <ul>
+                <li>世界百年未有之大变局加速演进 。</li>
+                <li>中华民族伟大复兴进入关键时期 。</li>
+                <li>中国式现代化全面推进拓展 。</li>
+                <li>科学社会主义在21世纪的中国焕发新的蓬勃生机 。</li>
+                <li>中国共产党自我革命开辟新的境界 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>3. 中国特色社会主义法治道路的基本原则有哪些?</h3>
+            <ul>
+                <li>一是坚持<span class="highlight">中国共产党的领导</span> 。</li>
+                <li>二是坚持<span class="highlight">以人民为中心</span> 。</li>
+                <li>三是坚持法律面前人人平等 。</li>
+                <li>四是坚持依法治国和以德治国相结合 。</li>
+                <li>五是坚持从中国实际出发 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>4. 简述中国式现代化的中国特色</h3>
+            <ul>
+                <li>人口规模巨大的现代化 。</li>
+                <li>全体人民共同富裕的现代化 。</li>
+                <li>物质文明和精神文明相协调的现代化 。</li>
+                <li>人与自然和谐共生的现代化 。</li>
+                <li>走和平发展道路的现代化 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>5. 如何理解文化繁荣兴盛是实现中华民族伟大复兴的必然要求？</h3>
+            <ul>
+                <li>国家强大、民族兴盛、社会发展，不仅需要高度发达的物质文明，也需要高度繁荣的精神文明 。</li>
+                <li>文化繁荣兴盛是实现中华民族伟大复兴的精神支撑 。</li>
+                <li>文化繁荣兴盛是建设社会主义现代化强国的应有之义 。</li>
+                <li>文化繁荣兴盛是满足人民日益增长的美好生活需要的内在要求 。</li>
+                <li>文化繁荣兴盛是在世界文化激荡中站稳脚跟的前提基础 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>6. 坚持和完善制度与推进治理体系现代化之间的关系</h3>
+            <ul>
+                <li>这是一个整体，前句规定根本方向，后句规定实现路径 。</li>
+                <li>国家治理体系和治理能力是制度和执行能力的集中体现，两者是相辅相成的有机整体 。</li>
+                <li>制度起根本作用，但没有有效的治理能力，再好的制度也难以发挥作用。不能简单等同两者 。</li>
+                <li>是坚持和完善制度的必然要求，是实现社会主义现代化的应有之义 。</li>
+                <li>标志着党对规律认识的深化，对统筹改革具有重大指导意义 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>7. 如何更好推进中国特色社会主义法治体系建设？</h3>
+            <ul>
+                <li>加快形成完备的<span class="highlight">法律规范体系</span> 。</li>
+                <li>加快形成高效的<span class="highlight">法治实施体系</span> 。</li>
+                <li>加快形成严密的<span class="highlight">法治监督体系</span> 。</li>
+                <li>加快形成有力的<span class="highlight">法治保障体系</span> 。</li>
+                <li>加快形成完善的<span class="highlight">党内法规体系</span> 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>8. 简述中华文明的突出特性</h3>
+            <ul>
+                <li><span class="highlight">连续性</span>：根本上决定了必走自己的路 。</li>
+                <li><span class="highlight">创新性</span>：决定了守正不守旧、尊古不复古的进取精神 。</li>
+                <li><span class="highlight">统一性</span>：决定了统一国家是各族人民命运所系 。</li>
+                <li><span class="highlight">包容性</span>：决定了对世界文明兼收并蓄的开放胸怀 。</li>
+                <li><span class="highlight">和平性</span>：决定了中国始终是世界和平建设者 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>9. 在新时代如何推动构建新型国际关系？</h3>
+            <ul>
+                <li>秉持相互尊重、公平正义、合作共赢原则，走出对话而不对抗的新路 。</li>
+                <li>推进大国协调合作，构建和平共处、总体稳定的大国关系格局 。</li>
+                <li>坚持亲诚惠容和与邻为善、以邻为伴的周边外交方针 。</li>
+                <li>秉承真实亲诚理念和正确义利观，加强同发展中国家团结合作 。</li>
+                <li>秉持求同存异理念，构建新型政党关系 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>10. 如何推动中华优秀传统文化创造性转化、创新性发展？</h3>
+            <ul>
+                <li>创造新的历史是对历史最好的继承 。</li>
+                <li>坚持马克思主义立场，古为今用、推陈出新 。</li>
+                <li><span class="highlight">创造性转化</span>：赋予新的时代内涵和表达形式 。</li>
+                <li><span class="highlight">创新性发展</span>：对内涵加以补充拓展，增强影响力 。</li>
+                <li>广泛开展文化交流，取长补短，不故步自封 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>11. 怎样加快形成绿色生产方式和生活方式?</h3>
+            <ul>
+                <li>加快推动产业、能源、交通运输结构等调整优化 。</li>
+                <li>推进各类资源节约集约利用 。</li>
+                <li>积极稳妥推进碳达峰碳中和 。</li>
+                <li>健全绿色发展的保障体系 。</li>
+                <li>坚持把建设美丽中国转化为全体人民自觉行动 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>12. 如何理解新发展理念的内涵及作用？</h3>
+            <ul>
+                <li><span class="highlight">创新</span>：注重解决发展动力问题 。</li>
+                <li><span class="highlight">协调</span>：注重解决发展不平衡问题 。</li>
+                <li><span class="highlight">绿色</span>：注重解决人与自然和谐共生问题 。</li>
+                <li><span class="highlight">开放</span>：注重解决发展内外联动问题 。</li>
+                <li><span class="highlight">共享</span>：注重解决社会公平正义问题 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>13. 如何坚持和完善社会主义基本经济制度</h3>
+            <ul>
+                <li>明确制度基础包括公有制为主体、多种分配方式并存及市场经济体制 。</li>
+                <li>毫不动摇巩固和发展公有制经济，发挥国企支柱作用 。</li>
+                <li>毫不动摇鼓励、支持、引导非公有制经济发展 。</li>
+                <li>坚持按劳分配为主体，构建初次、再、第三次分配协调体系 。</li>
+                <li>构建高水平市场经济体制，处理好政府和市场的关系 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>14. 习近平总书记倡导的人类命运共同体的内涵</h3>
+            <ul>
+                <li>坚持对话协商，建设持久和平的世界 。</li>
+                <li>坚持共建共享，建设普遍安全的世界 。</li>
+                <li>坚持合作共赢，建设共同繁荣的世界 。</li>
+                <li>坚持交流互鉴，建设开放包容的世界 。</li>
+                <li>坚持绿色低碳，建设清洁美丽的世界 。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>15. 如何推进人与自然和谐共生的现代化？</h3>
+            <ul>
+                <li>坚持党对生态文明建设的全面领导 。</li>
+                <li>坚持生命共同体理念，尊重、顺应、保护自然 。</li>
+                <li>认识人因自然而生，两者一荣俱荣、一损俱损 。</li>
+                <li>处理好人与人、社会、自然以及经济与环保的关系 。</li>
+                <li>坚持绿色发展、系统治理，走绿色底色的中国式现代化新道路 。</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        资料来源：考点重难点汇总手册 
+    </footer>
+</div>
+
+</body>
+</html>
