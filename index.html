@@ -1063,12 +1063,27 @@ function createNavButton(index, targetId, type) {
         e.preventDefault();
         const el = document.getElementById(targetId);
         if (!el) return;
-        // 如果是小屏幕，先关闭移动端侧栏以恢复页面滚动，然后再滚动到目标位置
+        // 如果是小屏幕，先关闭移动端侧栏以恢复页面滚动，然后再等待页面解锁后滚动到目标位置（更可靠）
         if (typeof isSmallScreen === 'function' && isSmallScreen()) {
             try { closeMobileSidebar(); } catch (err) { /* ignore */ }
-            setTimeout(() => {
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 320);
+
+            const start = Date.now();
+            const maxWait = 800; // 最长等待时间（ms），避免无限等待
+
+            const tryScroll = () => {
+                const body = document.body;
+                // 当 body 不再被固定定位时，执行滚动；否则继续等待一次动画帧或超时后直接滚动
+                if (!body.style.position || body.style.position === '') {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else if (Date.now() - start < maxWait) {
+                    requestAnimationFrame(tryScroll);
+                } else {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+
+            // 给 closeMobileSidebar 一次短暂的执行时间再开始检查
+            setTimeout(tryScroll, 40);
         } else {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
