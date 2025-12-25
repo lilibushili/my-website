@@ -5,224 +5,381 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学习复习中心</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         :root {
-            --bg-color: #fafafa;
-            --card-bg: #ffffff;
-            --text-primary: #18181b;
-            --text-secondary: #71717a;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --border-color: #e4e4e7;
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --danger: #ef4444;
+            --success: #10b981;
+            --bg-light: #f8fafc;
+            --bg-lighter: #f0f4f8;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --radius: 16px;
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 'Noto Sans SC', sans-serif;
+            background: linear-gradient(180deg, #f0f4f8 0%, #f8fafc 100%);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        header {
-            width: 100%;
-            max-width: 1000px;
-            padding: 4rem 1.5rem 2rem;
-            text-align: left;
-        }
-
-        h1 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            margin: 0 0 0.5rem 0;
-            background: linear-gradient(to right, #18181b, #52525b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            padding: 0 1.5rem 4rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: all 0.3s ease;
+        /* 英雄区 */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: transparent;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 24px;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* 卡片容器 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        /* 卡片主样式 */
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* 卡片头部 */
         .card-header {
+            padding: 24px;
             display: flex;
             align-items: center;
-            margin-bottom: 2rem;
+            gap: 16px;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            margin-right: 1rem;
+            font-size: 28px;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
         }
 
         .xi-icon {
-            background-color: #fee2e2;
-            color: #ef4444;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
         }
 
         .os-icon {
-            background-color: #dbeafe;
-            color: #3b82f6;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .card-meta {
+            flex: 1;
         }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-dark);
         }
 
         .card-desc {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin: 0;
+            font-size: 14px;
+            color: var(--text-muted);
         }
 
+        /* 链接组 */
         .link-group {
+            padding: 16px 24px 24px;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 12px;
         }
 
         .link-btn {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 1.25rem;
-            background-color: #f4f4f5;
-            color: var(--text-primary);
+            padding: 14px 16px;
+            background: var(--bg-lighter);
+            color: var(--text-dark);
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.2s;
+            border-radius: 10px;
             border: 1px solid transparent;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .link-btn-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .link-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: white;
+            color: var(--primary);
+            font-size: 16px;
         }
 
         .link-btn:hover {
-            background-color: #ffffff;
-            border-color: var(--border-color);
-            box-shadow: var(--shadow-sm);
+            background: white;
+            border-color: var(--primary);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
         }
 
         .link-btn i.arrow {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            transition: transform 0.2s;
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: transform 0.2s ease;
         }
 
         .link-btn:hover i.arrow {
             transform: translateX(4px);
-            color: var(--text-primary);
+            color: var(--primary);
         }
 
-        .link-icon {
-            margin-right: 0.75rem;
-            color: var(--text-secondary);
-            width: 20px;
+        /* 页脚 */
+        .footer {
             text-align: center;
+            padding: 28px 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border-light);
         }
 
-        @media (max-width: 640px) {
-            header { padding-top: 2rem; }
-            h1 { font-size: 1.75rem; }
-            .container { grid-template-columns: 1fr; }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-desc {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .card-header {
+                padding: 20px;
+            }
+
+            .link-group {
+                padding: 12px 20px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .hero-desc {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+
+            .container {
+                padding: 30px 16px;
+            }
+
+            .icon-box {
+                width: 52px;
+                height: 52px;
+                font-size: 24px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>复习中心</h1>
-        <div class="subtitle">选择科目开始你的学习之旅</div>
-    </header>
+    <!-- 英雄区 -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>学习复习中心</h1>
+            <p class="hero-desc">精心打造的在线学习平台，助力你高效复习与巩固知识</p>
+        </div>
+    </div>
 
+    <!-- 主容器 -->
     <div class="container">
-        <!-- 习近平复习 -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box xi-icon">
-                    <i class="fas fa-book"></i>
+        <div class="cards-grid">
+            <!-- 习近平复习 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-box xi-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="card-meta">
+                        <h2 class="card-title">习近平复习</h2>
+                        <p class="card-desc">思想政治理论</p>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="card-title">习近平复习</h2>
-                    <p class="card-desc">思想政治理论</p>
+                <div class="link-group">
+                    <a href="习近平大题.html" class="link-btn">
+                        <div class="link-btn-left">
+                            <div class="link-icon"><i class="fas fa-pen"></i></div>
+                            <span>大题复习</span>
+                        </div>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <a href="习近平选择题.html" class="link-btn">
+                        <div class="link-btn-left">
+                            <div class="link-icon"><i class="fas fa-check-square"></i></div>
+                            <span>选择题复习</span>
+                        </div>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
                 </div>
             </div>
-            <div class="link-group">
-                <a href="习近平大题.html" class="link-btn">
-                    <span><i class="fas fa-pen link-icon"></i>大题复习</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
-                <a href="习近平选择题.html" class="link-btn">
-                    <span><i class="fas fa-check-square link-icon"></i>选择题复习</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
-            </div>
-        </div>
 
-        <!-- 操作系统复习 -->
-        <div class="card">
-            <div class="card-header">
-                <div class="icon-box os-icon">
-                    <i class="fas fa-laptop-code"></i>
+            <!-- 操作系统复习 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-box os-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="card-meta">
+                        <h2 class="card-title">操作系统</h2>
+                        <p class="card-desc">计算机专业核心课程</p>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="card-title">操作系统</h2>
-                    <p class="card-desc">计算机专业核心课程</p>
+                <div class="link-group">
+                    <a href="操作系统选择.html" class="link-btn">
+                        <div class="link-btn-left">
+                            <div class="link-icon"><i class="fas fa-database"></i></div>
+                            <span>题库选择</span>
+                        </div>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <a href="操作系统_雨课堂选择.html" class="link-btn">
+                        <div class="link-btn-left">
+                            <div class="link-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                            <span>雨课堂选择</span>
+                        </div>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <a href="操作系统填空.html" class="link-btn">
+                        <div class="link-btn-left">
+                            <div class="link-icon"><i class="fas fa-keyboard"></i></div>
+                            <span>填空题复习</span>
+                        </div>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
                 </div>
-            </div>
-            <div class="link-group">
-                <a href="操作系统选择.html" class="link-btn">
-                    <span><i class="fas fa-list-ul link-icon"></i>选择题复习</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
-                <a href="操作系统填空.html" class="link-btn">
-                    <span><i class="fas fa-keyboard link-icon"></i>填空题复习</span>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </a>
             </div>
         </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        © 2024 学习复习中心 · 提供高效学习体验
     </div>
 </body>
 </html>
