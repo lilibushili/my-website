@@ -76,6 +76,41 @@
             margin-bottom: 12px;
             text-align: justify;
         }
+        /* Toggle answer button styles and safe-hide (preserve layout) */
+        .question-title {
+            position: relative;
+            padding-right: 110px;
+        }
+
+        .toggle-answer {
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translateY(-6%);
+            background: var(--accent-blue);
+            color: #fff;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(63,81,181,0.18);
+        }
+
+        .toggle-answer:focus {
+            outline: 2px solid rgba(63,81,181,0.18);
+            outline-offset: 2px;
+        }
+
+        /* 保持答案所占空间但使其不可见，以免破坏布局 */
+        .answer-box {
+            transition: opacity .18s ease;
+        }
+
+        .answer-box.answer-hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -257,6 +292,35 @@
 <footer style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
     本文档内容严禁删减增改 · 2025版
 </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.card').forEach(function(card, idx){
+        var q = card.querySelector('.question-title');
+        var a = card.querySelector('.answer-box');
+        if(!q || !a) return;
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'toggle-answer';
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-controls', 'answer-' + idx);
+        btn.textContent = '隐藏答案';
+
+        // 给答案设置 id 以便无障碍关联
+        if(!a.id) a.id = 'answer-' + idx;
+
+        btn.addEventListener('click', function(){
+            var hidden = a.classList.toggle('answer-hidden');
+            btn.textContent = hidden ? '显示答案' : '隐藏答案';
+            btn.setAttribute('aria-expanded', (!hidden).toString());
+        });
+
+        q.appendChild(btn);
+    });
+});
+</script>
 
 </body>
 </html>
