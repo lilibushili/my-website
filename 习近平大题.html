@@ -111,6 +111,57 @@
             visibility: hidden;
             opacity: 0;
         }
+        /* 模态弹框样式 */
+        .end-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.45);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .18s ease, visibility .18s ease;
+        }
+
+        .end-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .end-modal-content {
+            background: #fff;
+            padding: 18px 20px;
+            border-radius: 12px;
+            max-width: 460px;
+            width: calc(100% - 48px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            text-align: center;
+        }
+
+        .end-modal-content h2 {
+            margin: 0 0 8px;
+            font-size: 20px;
+            color: #1a1a1a;
+        }
+
+        .end-modal-content p {
+            margin: 0 0 14px;
+            font-size: 15px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .end-modal-close {
+            background: linear-gradient(90deg,#6a11cb 0%,#2575fc 100%);
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -294,6 +345,16 @@
 </footer>
 </div>
 
+<!-- 弹框 HTML 开始 -->
+<div id="endModal" class="end-modal" role="dialog" aria-modal="true" aria-labelledby="endModalTitle">
+    <div class="end-modal-content">
+        <h2 id="endModalTitle">考试结束啦！</h2>
+        <p>不管结果怎么样！先给自己鼓个掌，相信你一定蒙的全对，去迎接下一门考试（￣︶￣）↗</p>
+        <button id="endModalClose" class="end-modal-close">知道啦</button>
+    </div>
+</div>
+<!-- 弹框 HTML 结束 -->
+
 <script>
 document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.card').forEach(function(card, idx){
@@ -320,6 +381,36 @@ document.addEventListener('DOMContentLoaded', function(){
         q.appendChild(btn);
     });
 });
+</script>
+
+<script>
+(function(){
+    var modal = document.getElementById('endModal');
+    var closeBtn = document.getElementById('endModalClose');
+    if(!modal || !closeBtn) return;
+
+    function showModal(){
+        modal.classList.add('show');
+        try{ closeBtn.focus(); }catch(e){}
+    }
+
+    function hideModal(){
+        modal.classList.remove('show');
+    }
+
+    function tryShow(){
+        setTimeout(showModal, 300);
+    }
+
+    if(document.readyState === 'complete' || document.readyState === 'interactive'){
+        tryShow();
+    } else {
+        document.addEventListener('DOMContentLoaded', tryShow);
+    }
+
+    closeBtn.addEventListener('click', hideModal);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('show')) hideModal(); });
+})();
 </script>
 
 </body>
